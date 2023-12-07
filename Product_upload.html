@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product_upload</title>
+    <style>
+        header{ 
+    height: 200px;
+    
+}
+
+figure{
+  float:left;
+}
+
+figure img {
+  margin-left: 20px;
+  
+}
+
+figcaption{
+  color:black;
+  font-weight: bold;
+  font-size: 31px;
+  position: relative;
+}
+
+.input-group mb-3{
+  float: center;
+}
+
+.cartbtn{
+  float: right;
+  background-color: #4CAF50;
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  border: none;
+  text-align: center;
+}
+
+.cartbtn a{
+  font-size: 20px;
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+.cartbtn a:hover{
+  color: black;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  float: right;
+  position: relative;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+  
+.topnav {
+  overflow: hidden;
+  background-color:#4CAF50;
+  width:100%;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 80px;
+  text-decoration: none;
+  font-size: 25px;
+  background-color: #4caf50 ;
+}
+
+.topnav a:hover {
+  background-color: #f6eee0;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+body{
+    background-color: #f6eee0;
+    margin: 1%;
+
+}
+
+.first{
+    margin-left: 450px;
+    font-size: 25px;
+}
+
+.but{
+    background-color: #4CAF50;
+    color: #f6eee0;
+    cursor: pointer;
+    Padding:1%;
+    font-size: large;
+    margin-left: 5px;
+    margin-top: 30px;
+}
+
+.reset{
+    background-color: #4CAF50;
+    color: #f6eee0;
+    cursor: pointer;
+    Padding:1%;
+    font-size: large;
+    margin-left: 500px;
+    margin-right: 4%;
+    margin-top: 30px;
+}
+
+.h3{
+    text-align: center;
+}
+
+.demo{
+    margin-left: 450px;
+    font-size: 25px;
+}
+table{
+    border-width: 5px;
+    border-color: #000000;
+    border-collapse: collapse;
+    margin-left: 350px;
+    font-size: 20px;
+}
+td{
+    padding:1px;
+    text-align:center;
+    border-width: 3px;
+  }
+h2{
+    float: left;
+}
+    </style>
+    <link rel="icon" href="logo.png" type="image/gif" sizes="26x26">
+    <script>
+        var products = [];
+    var cart = [];
+
+        function addProduct() {
+            var username = document.getElementById("Username").value;
+            var product_desc = document.getElementById("product_desc").value;
+            var qty = document.getElementById("quantity").value;
+            var price = document.getElementById("price").value;
+            
+
+            var newProduct = {
+                product_id: null,
+                product_desc: null,
+                product_qty: 0,
+                product_price: 0.00,
+            };
+            newProduct.product_id = username;
+            newProduct.product_desc = product_desc;
+            newProduct.product_qty = qty;
+            newProduct.product_price = price;
+
+
+            products.push(newProduct);
+
+
+            var html = "<table border='1|1' >";
+            html += "<td>Username</td>";
+            html += "<td>Product Description</td>";
+            html += "<td>Quantity</td>";
+            html += "<td>Price</td>";
+            html += "<td>Action</td>";
+            for (var i = 0; i < products.length; i++) {
+                html += "<tr>";
+                html += "<td>" + products[i].product_id + "</td>";
+                html += "<td>" + products[i].product_desc + "</td>";
+                html += "<td>" + products[i].product_qty + "</td>";
+                html += "<td>" + products[i].product_price + "</td>";
+                html += "<td><button type='submit' onClick='deleteProduct(\"" + products[i].product_id + "\", this);'/>Delete Item</button> &nbsp <button type='submit' onClick='addCart(\"" + products[i].product_id + "\", this);'/>Submit</button></td>";
+                html += "</tr>";
+            }
+            html += "</table>";
+            document.getElementById("demo").innerHTML = html;
+
+            document.getElementById("resetbtn").click()
+        }
+        function deleteProduct(product_id, e) {
+            e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
+            for (var i = 0; i < products.length; i++) {
+                if (products[i].product_id == product_id) {
+                    // DO NOT CHANGE THE 1 HERE
+                    products.splice(i, 1);
+                }
+            }
+        }
+
+        function addCart(product_id) {
+
+            for (var i = 0; i < products.length; i++) {
+                if (products[i].product_id == product_id) {
+                    var cartItem = null;
+                    for (var k = 0; k < cart.length; k++) {
+                        if (cart[k].product.product_id == products[i].product_id) {
+                            cartItem = cart[k];
+                            cart[k].product_qty++;
+                            break;
+                        }
+                    }
+                    if (cartItem == null) {
+                        
+                        var cartItem = {
+                            product: products[i],
+                            product_qty: products[i].product_qty 
+                        };
+                        cart.push(cartItem);
+                    }
+                }
+            }
+
+            renderCartTable();
+
+        }
+
+        function renderCartTable() {
+        var html = '';
+        var ele = document.getElementById("demo2");
+        ele.innerHTML = ''; 
+
+        html += "<table id='tblCart' border='1|1'>";
+        html += "<tr><td>Username</td>";
+        html += "<td>Product Description</td>";
+        html += "<td>Quantity</td>";
+        html += "<td>Price</td>";
+        html += "<td>Total</td>";
+        html += "<td>Action</td></tr>";
+        var GrandTotal = 0;
+        for (var i = 0; i < cart.length; i++) {
+            html += "<tr>";
+            html += "<td>" + cart[i].product.product_id + "</td>";
+            html += "<td>" + cart[i].product.product_desc + "</td>";
+            html += "<td>" + cart[i].product_qty + "</td>";
+            html += "<td>" + cart[i].product.product_price + "</td>";
+            html += "<td>" + parseFloat(cart[i].product.product_price) * parseInt(cart[i].product_qty) + "</td>";
+            html += "<td><button type='submit' onClick='subtractQuantity(\"" + cart[i].product.product_id + "\", this);'/>Subtract Quantity</button> &nbsp<button type='submit' onClick='addQuantity(\"" + cart[i].product.product_id + "\", this);'/>Add Quantity</button> &nbsp<button type='submit' onClick='removeItem(\"" + cart[i].product.product_id + "\", this);'/>Remove Item</button></td>";
+            html += "</tr>";
+
+           GrandTotal += parseFloat(cart[i].product.product_price) + parseInt(cart[i].product_qty);            
+
+        }
+        document.getElementById('demo3').innerHTML = GrandTotal;
+        html += "</table>";
+        ele.innerHTML = html;
+    }
+
+
+        function subtractQuantity(product_id)
+        {
+            
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].product.product_id == product_id) {
+                    cart[i].product_qty--;
+                }
+
+                if (cart[i].product_qty == 0) {
+                    cart.splice(i,1);
+                }
+        
+            }
+            renderCartTable();
+        }
+        function addQuantity(product_id)
+        {
+            
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].product.product_id == product_id) {
+                    cart[i].product_qty++;
+                }  
+            }
+            renderCartTable();
+        }
+        function removeItem(product_id)
+        {
+            
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].product.product_id == product_id) {
+                    cart.splice(i,1);
+                }
+
+            }
+            renderCartTable();
+        }
+        </script>
+</head>
+<body>
+<header>
+        <figure>
+            <img src="logo.png" alt="Logo" style="width: 20%">
+            <figcaption>BUILD</figcaption>
+        </figure>
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdFWtguNW7btud72sjCroOVtiqO6VeHmZHGUW3L949UJJvIHQ/formResponse">
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <button class="cartbtn"><a href="Cart.html">My Cart</a></button>
+                <div class="dropdown">
+                    <button class="dropbtn">Login</button>
+                        <div class="dropdown-content">
+                            <a href="MENTOR.html">MENTOR Login</a>
+                            <a href="STUDENT.html">STUDENT Login</a>
+                        </div>
+                </div>
+            </form>
+    </header>
+    <h2>Add courses:</h2>
+    <main>
+        
+<form name="order" id="order">
+    <table class="first">
+        <tr>
+            <td>
+                <label for="Username">Username:</label>
+            </td>
+            <td>
+                <input id="Username" name="product" type="text" size="28" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="product">Course Name:</label>
+            </td>
+            <td>
+                <input id="product_desc" name="product" type="text" size="28" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="quantity">No.of Courses:</label>
+            </td>
+            <td>
+                <input id="quantity" name="quantity" width="196px" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="price">Price(optional=0)</label>
+            </td>
+            <td>
+                <input id="price" name="price" size="28" required/>
+            </td>
+        </tr>
+    </table>
+    <input type="reset" class="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset" />
+    <input type="button" class="but" id="btnAddProduct" onclick="addProduct();" value="Add New Product" >
+</form>
+<hr>
+<p id="demo"></p> 
+<h3> Total items to add: </h3>
+<hr>
+<p id="demo2"></p>
+<h3>Grand Total:</h3>
+<hr>
+<p id="demo3"></p>
+</main>
+</body>
+</html>

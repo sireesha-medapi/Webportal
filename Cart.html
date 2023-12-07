@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+.register .nav-tabs .nav-link:hover
+{
+     border: none;
+}
+.text-align
+
+{
+    margin-top: 1%;
+    margin-bottom: 3%;
+
+     padding: 10%;
+      margin-left: 30%;
+}
+            .form-new{
+                margin-right: 22%;
+                margin-left: 20%;
+            }
+            .register-heading{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #2062a5;
+            }
+            .register-heading h1{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #37608a;
+            }
+            .register{
+                background: -webkit-linear-gradient(left, #055a4f, #00c6ff);
+                margin-top: 3%;
+                padding: 3%;
+                border-radius: 2.5rem;
+            }
+            .btnSubmit
+            {
+                width: 50%;
+                border-radius: 1rem;
+                padding: 1.5%;
+                color: rgb(46, 64, 122);
+                background-color: #03612e;
+                border: none;
+                cursor: pointer;
+                margin-right: 6%;
+                color: rgb(79, 79, 173);
+                margin-top: 4%;
+            }
+ header
+{ 
+  height: 200px;
+  background-image: linear-gradient( #4c5b86, #40478a);
+}
+
+figure{
+float:left;
+}
+
+figure img {
+margin-left: 20px;
+
+}
+
+figcaption{
+color:rgb(39, 89, 163);
+font-weight: bold;
+font-size: 31px;
+position: relative;
+}
+
+.input-group mb-3{
+float: center;
+}
+
+.cartbtn{
+float: right;
+background-color: #4c56af;
+padding: 10px;
+font-family: 'Times New Roman', Times, serif;
+border: none;
+text-align: center;
+}
+
+.cartbtn a{
+font-size: 20px;
+color: #1d567c;
+text-decoration: none;
+}
+
+.cartbtn a:hover{
+color: rgb(43, 126, 141);
+}
+
+/* Dropdown Button */
+.dropbtn {
+background-color: #4c7aaf;
+color: rgb(55, 100, 114);
+padding: 10px;
+font-family: 'Times New Roman', Times, serif;
+font-size: 20px;
+border: none;
+text-align: center;
+margin-top: 0px;
+margin-right: 20px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+float: right;
+position: relative;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f1f1f1;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+color: rgb(41, 107, 151);
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+font-size: 20px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: rgb(24, 41, 139);}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #1f2f66;}
+
+.topnav {
+overflow: hidden;
+background-color:#4c7faf;
+width:100%;
+}
+
+.topnav a {
+float: left;
+color: #a77ab9;
+text-align: center;
+padding: 14px 80px;
+text-decoration: none;
+font-size: 25px;
+background-color: #614caf ;
+}
+
+.topnav a:hover {
+background-color: #363b88;
+color: rgb(41, 56, 139);
+}
+
+.topnav a.active {
+background-color: #2b418b;
+color: rgb(45, 113, 134);
+}
+
+body{
+  background-color: #3f328a;
+  margin: 1%;
+
+}
+
+.first{
+  margin-left: 450px;
+  font-size: 25px;
+}
+
+.but{
+  background-color: #9f5ad8;
+  color: #29437a;
+  cursor: pointer;
+  Padding:1%;
+  font-size: large;
+  margin-left: 5px;
+  margin-top: 30px;
+}
+
+.reset{
+  background-color: #316b86;
+  color: #2e3d70;
+  cursor: pointer;
+  Padding:1%;
+  font-size: large;
+  margin-left: 500px;
+  margin-right: 4%;
+  margin-top: 30px;
+}
+
+.h2{
+  text-align: center;
+}
+
+.demo{
+  margin-left: 450px;
+  font-size: 25px;
+}
+
+.demo3{
+font-size: 150px;
+}
+
+table{
+  border-width: 5px;
+  border-color: #2b1380;
+  border-collapse: collapse;
+  margin-left: 350px;
+  font-size: 20px;
+}
+td{
+  padding:1px;
+  text-align:center;
+  border-width: 3px;
+}
+.home:hover {
+    background-color: #0b4d11; /* Green */
+}
+
+</style>
+<head>
+    <link rel="stylesheet" href="Cart.css">
+    <link rel="icon" href="logo.png" type="image/gif" sizes="26x26">
+    <script>
+        var products = [];
+    var cart = [];
+
+        function addProduct() {
+            var productID = document.getElementById("productID").value;
+            var product_desc = document.getElementById("product_desc").value;
+            var qty = document.getElementById("quantity").value;
+            var price = document.getElementById("price").value;
+
+            var newProduct = {
+                product_id: null,
+                product_desc: null,
+                product_qty: 0,
+                product_price: 0.00,
+            };
+            newProduct.product_id = productID;
+            newProduct.product_desc = product_desc;
+            newProduct.product_qty = qty;
+            newProduct.product_price = price;
+
+
+            products.push(newProduct);
+
+
+            var html = "<table id='tblcart1' border='1'>";
+            html += "<td>Product ID</td>";
+            html += "<td>Product Description</td>";
+            html += "<td>Quantity</td>";
+            html += "<td>Price</td>";
+            html += "<td>Action</td>";
+            for (var i = 0; i < products.length; i++) {
+                html += "<tr>";
+                html += "<td>" + products[i].product_id + "</td>";
+                html += "<td>" + products[i].product_desc + "</td>";
+                html += "<td>" + products[i].product_qty + "</td>";
+                html += "<td>" + products[i].product_price + "</td>";
+                html += "<td><button type='submit' onClick='deleteProduct(\"" + products[i].product_id + "\", this);'/>Delete Item</button> &nbsp <button type='submit' id='Pop' onClick='addCart(\"" + products[i].product_id + "\", this);'/>Buy</button></td>";
+                html += "</tr>";
+            }
+            html += "</table>";
+            document.getElementById("demo").innerHTML = html;
+
+            document.getElementById("resetbtn").click()
+        }
+        function deleteProduct(product_id, e) {
+            e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
+            for (var i = 0; i < products.length; i++) {
+                if (products[i].product_id == product_id) {
+                    // DO NOT CHANGE THE 1 HERE
+                    products.splice(i, 1);
+                }
+            }
+        }
+
+        function addCart(product_id) {
+
+            for (var i = 0; i < products.length; i++) {
+                if (products[i].product_id == product_id) {
+                    var cartItem = null;
+                    for (var k = 0; k < cart.length; k++) {
+                        if (cart[k].product.product_id == products[i].product_id) {
+                            cartItem = cart[k];
+                            cart[k].product_qty++;
+                            break;
+                        }
+                    }
+                    if (cartItem == null) {
+                        
+                        var cartItem = {
+                            product: products[i],
+                            product_qty: products[i].product_qty 
+                        };
+                        cart.push(cartItem);
+                    }
+                }
+            }
+
+            renderCartTable();
+
+        }
+
+        function renderCartTable() {
+        var html = '';
+        var ele = document.getElementById("demo2");
+        ele.innerHTML = ''; 
+
+        html += "<table id='tblCart2' border='1|1'>";
+        html += "<tr><td>Product ID</td>";
+        html += "<td>Product Description</td>";
+        html += "<td>Quantity</td>";
+        html += "<td>Price</td>";
+        html += "<td>Total</td>";
+        html += "<td>Action</td></tr>";
+        var GrandTotal = 0;
+        for (var i = 0; i < cart.length; i++) {
+            html += "<tr>";
+            html += "<td>" + cart[i].product.product_id + "</td>";
+            html += "<td>" + cart[i].product.product_desc + "</td>";
+            html += "<td>" + cart[i].product_qty + "</td>";
+            html += "<td>" + cart[i].product.product_price + "</td>";
+            html += "<td>" + parseFloat(cart[i].product.product_price) * parseInt(cart[i].product_qty) + "</td>";
+            html += "<td><button type='submit' onClick='subtractQuantity(\"" + cart[i].product.product_id + "\", this);'/>Subtract Quantity</button> &nbsp<button type='submit' onClick='addQuantity(\"" + cart[i].product.product_id + "\", this);'/>Add Quantity</button> &nbsp<button type='submit' onClick='removeItem(\"" + cart[i].product.product_id + "\", this);'/>Remove Item</button></td>";
+            html += "</tr>";
+
+           GrandTotal += parseFloat(cart[i].product.product_price) * parseInt(cart[i].product_qty);            
+
+        }
+        document.getElementById('demo3').innerHTML = GrandTotal;
+        html += "</table>";
+        ele.innerHTML = html;
+    }
+
+
+        function subtractQuantity(product_id)
+        {
+            
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].product.product_id == product_id) {
+                    cart[i].product_qty--;
+                }
+
+                if (cart[i].product_qty == 0) {
+                    cart.splice(i,1);
+                }
+        
+            }
+            renderCartTable();
+        }
+        function addQuantity(product_id)
+        {
+            
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].product.product_id == product_id) {
+                    cart[i].product_qty++;
+                }  
+            }
+            renderCartTable();
+        }
+        function removeItem(product_id)
+        {
+            
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].product.product_id == product_id) {
+                    cart.splice(i,1);
+                }
+
+            }
+            renderCartTable();
+        }
+        </script>
+        <script>
+    var sheetName = 'Sheet1'
+		var scriptProp = PropertiesService.getScriptProperties()
+
+		function intialSetup () {
+		  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+		  scriptProp.setProperty('key', activeSpreadsheet.getId())
+		}
+
+		function doPost (e) {
+		  var lock = LockService.getScriptLock()
+		  lock.tryLock(10000)
+
+		  try {
+			var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
+			var sheet = doc.getSheetByName(sheetName)
+
+			var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+			var nextRow = sheet.getLastRow() + 1
+
+			var newRow = headers.map(function(header) {
+			  return header === 'timestamp' ? new Date() : e.parameter[header]
+			})
+
+			sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
+
+			return ContentService
+			  .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+			  .setMimeType(ContentService.MimeType.JSON)
+		  }
+
+		  catch (e) {
+			return ContentService
+			  .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e }))
+			  .setMimeType(ContentService.MimeType.JSON)
+		  }
+
+		  finally {
+			lock.releaseLock()
+		  }
+		}
+        </script>
+</head>
+<body style="background-color: #9CC3D5FF;">
+    <button class="home"><a href="Home.html">Home</a></button>
+<!---<header>
+        <figure>
+            <img src="logo.png" alt="Logo" style="width:20%">
+            <figcaption>BUILD</figcaption>
+        </figure>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <button class="cartbtn"><a href="Cart.html">My Cart</a></button>
+                <div class="dropdown">
+                    <button class="dropbtn">Login</button>
+                        <div class="dropdown-content">
+                            <a href="MENTOR.html">MENTOR Login</a>
+                            <a href="STUDENT.html">STUDENT Login</a>
+                        </div>
+                </div>
+                <section class="topnav">
+                    <a href="Home.html">Home</a>
+                    <a href="MENTORS.html">MENTOR</a>
+                    <a href="COURCES.html">COURSES</a>
+                    <a href="pnc.html">ADMIN</a>
+                    <a href="More.html">More</a>
+                </section> 
+    </header>>--->
+    <main>
+<form  method="POST"  name="google-sheet" name="order" id="order">
+  <table class="container register">
+        <tr>
+            <td>
+                <label for="productID"> Student Name:</label>
+            </td>
+            <td>
+                <input id="productID" name="product" type="text" size="28" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="product">COURSE  NAME</label>
+            </td>
+            <td>
+                <input id="product_desc" name="product" type="text" size="28" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="quantity">Quality:</label>
+            </td>
+            <td>
+                <input id="quantity" name="quantity" width="196px" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="price">Price(Optional)</label>
+            </td>
+            <td>
+                <input id="price" name="price" size="28" required/>
+            </td>
+        </tr>
+    </table>
+    <input type="reset" class="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset" />
+    <input type="button" class="but" name="enter" id="btnAddProduct" onclick="addProduct();" value="Add to cart" >
+    <div class="form-group">
+        <input type="text" name="Student Id" class="form-control" placeholder="Your ID *" value="" required=""/>
+    </div>
+    <div class="form-group">
+        <input type="text" name="Email" class="form-control" placeholder="Your Email *" value="" required=""/>
+    </div>
+    <div class="form-group">
+        <input type="number" name="Phone" class="form-control" placeholder=" contact" value="Your no.*" required=""/>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="submit" class="btnSubmit btn-block" value="submit" /s>
+    </div>
+    <script>
+    alert("Make sure you adding before proceeding further");
+    </script>
+</form>
+<hr>
+<h2> My Cart</h2>
+<hr>
+<p id="demo"></p> 
+<h2> My DATA </h2>
+<hr>
+<p id="demo2"></p>
+<h2>Total DATA:</h2>
+<hr>
+<p id="demo3"></p>
+</main>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwH5PZkXMoIpv_0AFKoO487ZcF2ToloedpdssqHiKHJwur9VYxlWlfb2uM3sXah-byBtA/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

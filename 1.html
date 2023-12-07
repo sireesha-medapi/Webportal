@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roote-One</title>
+	<style>
+		h1{
+    background-color:none;
+    padding-top:15px;
+    font-size:40px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color:#db3d94;
+    
+}
+
+body{
+    
+   
+    background-image: url('loginBg1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+   
+}
+
+h4{
+    margin:35px;
+    font-size: larger;
+}
+
+p{
+    margin:50px;
+    font-size: larger;
+}
+/* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 10%;
+  border-radius: 50%;
+  height: 10%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+.labelMe{
+    color: white;
+  font-size: 20px;
+  
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+.loginform{
+   padding-left: 25%; 
+   padding-right: 25%; 
+   /* padding-top: 10%; 
+   padding-bottom: 10%;  */
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+.selectClass{
+    padding-left: 6%; 
+   padding-right: 6%; 
+   /* padding-top: 5%; 
+   padding-bottom: 5%;   */
+}
+	</style>
+	<link rel="stylesheet" href="1.css">
+    <link rel="icon" href="LOGINbg1.jpg" type="image/gif" sizes="26x26">
+</head>
+<body>
+ 	<header>
+    	<h1>BUILD</h1>
+    	<!-- <nav style="text-align:center;font-size: 80px;">
+			<a href="MENTOR.html"class = "active"><button type="button">MENTOR</button></a>
+    		<a href="STUDENT.html"><button type="button">STUDENT</button></a>
+			<a href="ADMIN.html"><button type="button">ADMIN</button></a>
+		</nav> -->
+ 	</header>
+    <div class="loginform">
+     <form action="action_page.php" method="post">
+        <div class="imgcontainer">
+          <img src="moong.jpeg" alt="Avatar" class="avatar">
+        </div>
+      
+        <div class="container">
+          <label class="labelMe" for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+      
+          <label class="labelMe" for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+          <label class="labelMe" for="uname"><b>Select User Type</b></label>
+         
+           
+          <select class="selectClass" name="cars" id="cars">
+            <option value="" disabled selected hidden>Select Type</option>
+          
+            <option value="Admin">MENTOR</option>
+            <option value="Student">STUDENT</option>
+            <option value="Admin">ADMIN</option>
+            
+          </select>
+      
+          <button type="submit" ><a href="home.html"></a>Login</button>
+      
+          <label class="labelMe">
+            <input  type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+
+	</body>
+	</html>

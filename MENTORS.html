@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ="UTF-8">
+    <title>MENTORS</title>
+    <link rel="stylesheet" href="Vegetables.css">
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+        #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f6eee0;
+  border-radius: 50%;
+  border-top: 16px solid #4CAF50;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+#myDiv {
+  display: none;
+}
+
+body{
+  margin:1%;
+  font-family: montserrat;
+}
+
+header{ 
+    height: 200px;
+    background-image: linear-gradient( #a59f96, #a59f96);
+}
+
+
+figure{
+  float:left;
+}
+
+figure img {
+  margin-left: 20px;
+  
+}
+
+figcaption{
+  color:black;
+  font-weight: bold;
+  font-size: 31px;
+  position: relative;
+}
+
+.input-group mb-3{
+  float: center;
+}
+
+.cartbtn{
+  float: right;
+  background-color: #4CAF50;
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  border: none;
+  text-align: center;
+}
+
+.cartbtn a{
+  font-size: 20px;
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+.cartbtn a:hover{
+  color: black;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  float: right;
+  position: relative;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+  
+.topnav {
+  overflow: hidden;
+  background-color:#4CAF50;
+  width:100%;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 80px;
+  text-decoration: none;
+  font-size: 25px;
+  background-color: #4caf50 ;
+}
+
+.topnav a:hover {
+  background-color: #f6eee0;
+  color: black;
+  text-decoration: none;
+}
+
+.topnav a.active {
+  background-color: #000000;
+  color: white;
+}
+.Graph{
+  margin-left: 200px;
+}
+
+.tb{
+    padding-top:12px;
+}
+
+.ref{
+    padding-top: 20px;
+}
+
+table{
+  border: 1px 1px 1px solid black;
+  font-family: 'Times New Roman', Times, serif;
+  width: 22.5%;
+}
+
+th, .semiheading{
+  text-align: center;
+}
+
+.semiheading:hover{
+  background-color:#ffffff;
+}
+
+tr:nth-child(even){ 
+  background-color: #f2f2f2;
+}
+
+td,th{
+  padding:10px;
+}
+
+td a{
+  color: #000000;
+  font-size: medium;
+}
+
+td:hover{
+  background-color:lightgreen;
+}
+
+.button{
+  border-radius: 8px;
+  width:20%;
+  height:25px;
+  box-shadow: 0 8px 16px 0 rgba(77, 128, 12, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; 
+  color: white;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  float: right;
+  position:const 80px = require('80px');
+  padding:10px;
+  background-color: #f6eee0;
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #4CAF50;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+footer{
+  padding-top:25%;
+  padding-bottom:0px;
+  
+}
+.ulFooter{
+  display:inline-block;
+  background-color: #000000;
+  padding-top:0px;
+  padding:59px;
+  padding-bottom:0px;
+
+}
+
+.liFooter{
+  color: white;
+  list-style-type:none;
+  padding:3px;
+
+}
+
+/* ul{
+  display:inline-block;
+  background-color: #000000;
+  padding-top:0px;
+  padding:59px;
+  padding-bottom:0px;
+}
+
+li{
+  color: white;
+  list-style-type:none;
+  padding:3px;
+} */
+
+a{
+  text-decoration:none;
+  font-size: 25px;
+  color:white;
+}
+
+a:hover{
+  background-color:#4CAF50;
+  text-decoration:underline;
+}
+
+.sml{
+  display:inline;
+  padding-right:45px;
+}
+
+.info{
+  width:100%;
+  background-color: #000000;
+  padding-bottom:0px;
+}
+.ulFooter{
+  padding-right:90px;
+
+}
+
+/* .ul{
+  padding-right:90px;
+} */
+
+h3{
+  font-size:25px;
+  color:white;S
+}
+/*start menu bar */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}   
+nav{
+
+  height: 80px;
+  width: 100%;
+  background: #0082e6;
+
+}
+label.logo1{
+  color: white;
+  font-size: 35px;
+ 
+  line-height: 80px;
+  padding-left: 100px;
+  font-weight: bold;
+}
+label.logo2{
+  color: rgb(248, 238, 96);
+  font-size: 42px;
+ 
+  line-height: 80px;
+
+  font-weight: bold;
+}
+label.logo3{
+  color: white;
+  font-size: 35px;
+ 
+  line-height: 80px;
+  padding-right: 100px;
+  font-weight: bold;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  margin: 0 5px;
+  display: inline-block;
+  line-height: 80px;
+}
+nav ul li a{
+  color: white;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding:7px 13px;
+  border-radius: 3px
+
+}
+nav ul li a.active,nav ul li a:hover{
+  background: #1b9bff;
+  transition: .5s;
+}
+/* End */
+    </style>
+    <link rel="icon" href="logo.png" type="image/gif" sizes="26x26">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="myFunction()">
+  <div id="loader"></div>
+  <div style="display:none;" id="myDiv" class="animate-bottom">
+    <!-- <header>
+        <figure>
+            <img src="logo.png" alt="Logo" style="width:20%">
+            <figcaption>BUILD</figcaption>
+        </figure> -->
+            <!-- <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <!-- <button class="cartbtn"><a href="Cart.html">My Cart</a></button>
+                <div class="dropdown">
+                    <button class="dropbtn">Login</button>
+                        <div class="dropdown-content">
+                            <a href="MENTOR.html">MENTOR Login</a>
+                            <a href="STUDENT.html">STUDENT Login</a>
+                        </div>
+                </div>
+                <section class="topnav">
+                    <a href="Home.html">Home</a>
+                    <a class="active" href="MENTORS.html">MENTORS</a>
+                    <a href="COURCES.html">COURSES</a>
+                    <a href="pnc.html">ADMIN</a>
+                    <a href="More.html">More</a>
+                </section> 
+    </header> -->
+    <nav>
+      <label class="logo1">B</label>
+      <label class="logo2">UI</label>
+      <label class="logo3">LD</label>
+      <ul>
+         <li><a href="Home.html">Home</a></li>
+         <li><a class="active" href="MENTORS.html">mentor list</a></li>
+         <li><a href="COURCES.html">courses</a></li>
+        <!----<li><a href="pnc.html">admin</a></li>--->
+         <li><a href="more.html">more</a></li>
+         <li><a href="Feedback.html">Feedback</a></li>
+      </ul>
+   </nav><br>
+    <div class="row">
+        <div class="card">
+            <img src="Onion.png" alt="Veggies" style="width:67%">
+            <h1>mentor0</h1>
+            <p>frame work= V00C1<br></p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="1.png" alt="Veggies" style="width: 380px;">
+            <h1>mentor-01</h1>
+            <p>photo shop= V00C2<br></p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="2.png" alt="Veggies" style="width:100%">
+            <h1>mentor-02</h1>
+            <p>drawing= V00C3<br></p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="3.jpg" alt="Veggies" style="width:90%">
+            <h1>mentor-03</h1>
+            <p>DANCE= V00O1</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+    </div><br><br>
+    <div class="row">
+        <div class="card">
+          <img src="4.jpg" alt="Veggies" style="width:75% ">
+          <h1>mentor-04</h1>
+          <p>photo shop= V00O2</p>
+          <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+      </div>
+        <div class="card">
+            <img src="5.jpg" alt="Veggies" style="width: 243px;">
+            <h1>mentor-05</h1>
+            <p>frame work=V00O3</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="0.png" alt="Veggies" style="width:165px;">
+            <h1>MENTOR-06</h1>
+            <p>DANCE= V00O4</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="Potato.png" alt="Veggies" style="width:300px;">
+            <h1>MENTOR-07</h1>
+            <p>OTHERS= V00P1</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+      </div><br><br>
+      <div class="row">
+        <div class="card">
+            <img src="6.png" alt="Veggies" style="width:200px;">
+            <h1>MENTOR-08</h1>
+            <p>OTHERS = V00P2</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="7.png" alt="Veggies" style="width:180px;">
+            <h1>MENTOR-09</h1>
+            <p>drawing= V00P3</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="8.png" alt="Veggies" style="width:200px;">
+            <h1>MENTOR-10</h1>
+            <p>frame work= V00T1</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+        <div class="card">
+            <img src="9.png" alt="Veggies" style="width: 200px;">
+            <h1>MENTOR-11</h1>
+            <p>photo shop= V00T3</p>
+            <p><a href="Cart.html"><button>Add to Cart</button></a></p>
+        </div>
+      </div><br><br>
+      <form action="pnc.html">
+        <label for="uname">Choose an option:</label>
+        <select name="cars" id="cars">
+          <option value="pnc.html">ADMIN</option>
+          <option value="COURCES.html">COURCES</option>
+          <option value="MENTORS.html">MENTORS</option>
+          <option value="More.html">MORE</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+     
+        <script>
+          var myVar;
+
+          function myFunction() 
+          {
+              myVar = setTimeout(showPage, 1000);
+          }
+
+          function showPage() 
+          {
+              document.getElementById("loader").style.display = "none";
+              document.getElementById("myDiv").style.display = "block";
+          }
+      </script>
+    </main><br>
+   
+    <footer>
+        <div class="info">
+            <ul class="ulFooter">
+                <li><a href="AboutUs.html" target="_blank">About us</a></li>
+                <li><a href="Cart.html">Cart</a></li>
+                <li><a href="Tnc.html" target="_blank">Terms and Conditions</a></li>
+                <li><a href="PP.html" target="_blank">Privacy Policy</a></li>
+            </ul>
+            <ul class="ulFooter">
+                <li class="liFooter"><a href="FAQ.html" target="_blank">FAQs</a></li>
+                <li class="liFooter"><a href="Feedback.html" target="_blank">Feedback</a></li>
+                <li class="liFooter">Contact us</li>
+                <li class="liFooter">+91 8688802866</li>
+                <li class="liFooter">N171230@rguktn.ac.in</li>
+            </ul>
+            <ul class="ulFooter">
+                <h3>Social Media Links</h3>
+                <li class="sml"><a href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true" aria-label="instagram"></i></a></li>
+                <li class="sml"><a href="https://www.facebook.com"><i class="fa fa-facebook-official" aria-hidden="true" aria-label="facebook"></i></a></li>
+                <li class="sml"><a href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true" aria-label="twitter"></i></a></li>
+            </ul>
+          </div>
+    </footer>
+  </div>
+</body>
+</html>
